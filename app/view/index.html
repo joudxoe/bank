@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/css/reset.css">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/custom.css">
+    <script src="public/js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>EGG Bank</h1>
+        <div class="inp">
+            <form class="withdraw" action="/withdraw" method="post">
+                <input type="number" min="1" name="withdraw" placeholder="請輸入提款金額" required>
+                <input type="hidden" name="_csrf" value="{{ ctx.csrf }}">
+                <input type="submit" name="btn_withdraw" value="提款" >
+            </form>             
+            <form class="deposit" action="/deposit" method="post">
+                <input type="number" min="1" name="deposit" placeholder="請輸入存款金額" required>
+                <input type="hidden" name="_csrf" value="{{ ctx.csrf }}">
+                <input type="submit" name="btn_deposit" value="存款">
+            </form>       
+        </div>
+        <table class="table table-bordered table-hover table-sm caption-top">
+            <caption>交易明細</caption>
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">時間</th>
+                    <th scope="col">提款</th>
+                    <th scope="col">存款</th>
+                    <th scope="col">結餘</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for arr in arrs %}
+                <tr>
+                    <td>{{ arr.time }}</td>
+                    <td>{{ arr.withdraw }}</td>
+                    <td>{{ arr.deposit }}</td>
+                    <td>{{ arr.balance }}</td>
+                </tr>                
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    <script>
+        // $(function() {
+        //     const balance = {{ ctx.session.balance }};                 
+        //     $('[name="btn_withdraw"]').click(function() {
+        //         const withdraw = $('[name="withdraw"]').val();
+        //         if(Number(withdraw) > Number(balance) || Number(balance) == 0){
+        //             $('p.err').html('餘額不足，無法提款');
+        //         }else{
+        //             $('form.withdraw').submit();
+        //         }
+        //     });
+        //     $('[name="withdraw"]').keypress(function(event) {
+        //         const withdraw = $(this).val();
+        //         if(event.keyCode === 13){
+        //             event.preventDefault();
+        //             if(Number(withdraw) > Number(balance) || Number(balance) == 0){
+        //                 $('p.err').html('餘額不足，無法提款');
+        //             }else{
+        //                 $('form.withdraw').submit();
+        //             }
+        //         }
+        //     });
+        // });
+    </script>
+</body>
+</html>
