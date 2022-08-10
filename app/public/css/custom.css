@@ -1,0 +1,19 @@
+body div.container {
+  margin-top: 20px;
+}
+body div.container h1 {
+  color: #198754;
+  margin-bottom: 30px;
+}
+body div.container div.inp {
+  margin: 30px 0 20px;
+}
+body div.container div.inp form {
+  margin-bottom: 10px;
+}
+body div.container div.inp form.withdraw p.err {
+  margin-top: 10px;
+  color: red;
+}
+
+/*# sourceMappingURL=custom.css.map */
