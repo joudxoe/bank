@@ -18,6 +18,12 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];    
 
+  exports.security = {
+    csrf: {
+      enable: false,
+    },
+  };
+
   exports.view = {
     defaultViewEngine: 'nunjucks',
     mapping: {
@@ -31,9 +37,23 @@ module.exports = appInfo => {
     client: {
       host: '127.0.0.1',
       port: 6379,
-      password: 'auth',
+      password: 'redis',
       db: 0,
-    }    
+    },    
+  };
+
+  exports.sequelize = {
+    dialect: 'mysql',
+    host: '127.0.0.1',
+    port: 3306,
+    user: 'root',
+    password: 'root1234',
+    database: 'bank',
+    timezone: '+08:00',
+    define: {
+      tableName: 'transaction',
+      timestamps: false,
+    },
   };
 
   // add your user config here
