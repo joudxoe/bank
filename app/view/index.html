@@ -26,7 +26,7 @@
             </form>       
         </div>
         <table class="table table-bordered table-hover table-sm caption-top">
-            <caption>交易明細</caption>
+            <caption>交易明細({{lLen}}/{{sLen}}/{{loop}})</caption>
             <thead class="table-light">
                 <tr>
                     <th scope="col">時間</th>
@@ -36,12 +36,12 @@
                 </tr>
             </thead>
             <tbody>
-                {% for arr in arrs %}
+                {% for row in rows %}
                 <tr>
-                    <td>{{ arr.time }}</td>
-                    <td>{{ arr.withdraw }}</td>
-                    <td>{{ arr.deposit }}</td>
-                    <td>{{ arr.balance }}</td>
+                    <td>{{ row.created }}</td>
+                    <td>{{ row.withdraw }}</td>
+                    <td>{{ row.deposit }}</td>
+                    <td>{{ row.balance }}</td>
                 </tr>                
                 {% endfor %}
             </tbody>

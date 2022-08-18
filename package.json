@@ -11,8 +11,10 @@
     "egg": "^2",
     "egg-redis": "^2.4.0",
     "egg-scripts": "^2",
+    "egg-sequelize": "^6.0.0",
     "egg-view-nunjucks": "^2.3.0",
     "jquery": "^3.6.0",
+    "mysql2": "^2.3.3",
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
@@ -22,13 +24,14 @@
     "egg-ci": "^2",
     "egg-mock": "^4",
     "eslint": "^8",
-    "eslint-config-egg": "^12"
+    "eslint-config-egg": "^12",
+    "sequelize-cli": "^6.4.1"
   },
   "engines": {
     "node": ">=16.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-redis", 
+    "start": "egg-scripts start --daemon --title=egg-server-redis",
     "stop": "egg-scripts stop --title=egg-server-redis",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
